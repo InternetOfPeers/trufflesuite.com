@@ -1,0 +1,56 @@
+{% extends "main.html" %}
+
+{% block site_meta %}
+{{ super() }}
+<meta http-equiv="refresh" content="2;{{ page.meta.redirect_url }}" />
+{% endblock %}
+
+<!-- Render hero under tabs -->
+{% block tabs %}
+{{ super() }}
+<!-- Additional styles for landing page -->
+<style>
+  /* Remove spacing, as we cannot hide it completely */
+  .md-main__inner {
+    margin: 0;
+  }
+
+  /* Hide main content for now */
+  .md-content {
+    display: none;
+  }
+
+  /* Hide table of contents */
+  @media screen and (min-width: 60em) {
+    .md-sidebar--secondary {
+      display: none;
+    }
+  }
+
+  .card-img-top {
+    display: inline-block;
+    margin: 0 .5em 0 0;
+    width: 2.5rem;
+    max-height: 2.5rem;
+  }
+</style>
+
+<section class="p-5">
+
+  <h1>Redirecting to new page... 🚀</h1>
+
+  <p class="mt-4"><a href="{{ page.meta.redirect_url }}">Click here</a> if the page does not refresh automatically.</p>
+
+</section>
+{% endblock %}
+
+<!-- Navigation -->
+{% block site_nav %}{% endblock %}
+
+<!-- Content -->
+{% block content %}{% endblock %}
+
+<!-- Application footer -->
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock %}
